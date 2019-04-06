@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node ./bin/www",
+    "build": "webpack -d",
     "electron": "electron .",
     "dev": "npm-run-all --parallel electron start",
     "package": "electron-packager . sample-app --platform=darwin --arch x64 --overwrite"
