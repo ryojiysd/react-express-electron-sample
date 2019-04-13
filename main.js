@@ -11,14 +11,17 @@ const app = electron.app
 
 const BrowserWindow = electron.BrowserWindow
 
+// Not to be a target of GC, mainWindow is declared as a global variable
 let mainWindow
 
+// Exit the app when all windows are closed
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
     }
 })
 
+// After finishing initialization of Electron, start the app
 app.on('ready', () => {
     mainWindow = new BrowserWindow({ width: 800, height: 600})
     mainWindow.loadURL('http://127.0.0.1:3000')
